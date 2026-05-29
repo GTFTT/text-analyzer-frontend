@@ -1,0 +1,35 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(0 0 0 / 0.2);
+  width: 25vw;
+  padding: 4rem;
+}
+
+.title {
+  width: 100%;
+  text-align: center;
+  height: 3rem;
+}
+
+.body {
+  padding-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  height: stretch;
+}
+
+.bottom {
+  height: 3rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  align-items: center;
+
+  button {
+    height: 4rem;
+    width: 4rem;
+    padding: 0;
+  }
+}

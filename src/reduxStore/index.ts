@@ -1,9 +1,9 @@
 import {configureStore} from "@reduxjs/toolkit";
-// import {HEADER_SLICE_NAME, headerSliceReducer} from "../compoentns/Header/headerSlice.ts";
+import {MENU_SLICE_NAME, menuSliceReducer} from "../components/Menu/menuSlice.ts";
 
 export const store = configureStore({
   reducer: {
-    // [HEADER_SLICE_NAME]: headerSliceReducer,
+    [MENU_SLICE_NAME]: menuSliceReducer
   }
 })
 

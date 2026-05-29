@@ -13,17 +13,3 @@ body {
 html {
   font-size: 16px;
 }
-
-/* Tablets / small laptops */
-@media (max-width: 768px) {
-  html {
-    font-size: 10px;
-  }
-}
-
-/* Phones */
-@media (max-width: 480px) {
-  html {
-    font-size: 8px;
-  }
-}
