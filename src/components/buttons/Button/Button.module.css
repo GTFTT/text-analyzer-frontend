@@ -1,0 +1,12 @@
+.container {
+  background: #424242;
+  padding: 0.5rem 1.5rem;
+  border: none;
+  color: white;
+  border-radius: 0.5rem;
+}
+
+.container:hover {
+  background: #8f8f8f;
+  cursor: pointer;
+}

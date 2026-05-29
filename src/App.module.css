@@ -1,0 +1,15 @@
+.app {
+  background: linear-gradient(135deg, #0e0e0e 0%, #2e2e2e 50%, #575757 100%);
+  color: white;
+  min-height: 100vh;
+  padding: 0;
+  margin: 0;
+
+  display: flex;
+  flex-direction: row;
+}
+
+.pagesContainer {
+  min-height: 100vh;
+  width: stretch;
+}

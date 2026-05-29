@@ -1,0 +1,15 @@
+.input {
+  width: stretch;
+  padding: 0.5rem 1rem;
+  background-color: black;
+  border: 0.1rem solid gray;
+  color: white;
+}
+
+.input:-webkit-autofill,
+.input:-webkit-autofill:hover,
+.input:-webkit-autofill:focus {
+  -webkit-text-fill-color: #fff;
+  -webkit-box-shadow: 0 0 0 1000px #000 inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
