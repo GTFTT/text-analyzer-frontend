@@ -5,3 +5,9 @@
   flex-direction: column;
   gap: 1rem;
 }
+
+.fileInfoSection {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}

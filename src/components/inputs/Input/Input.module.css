@@ -13,3 +13,8 @@
   -webkit-box-shadow: 0 0 0 1000px #000 inset;
   transition: background-color 5000s ease-in-out 0s;
 }
+
+.disabledInput {
+  border: 0.1rem solid #333;
+  color: #777;
+}

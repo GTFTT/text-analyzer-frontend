@@ -1,0 +1,13 @@
+.container {
+  width: stretch;
+  border: 0.1rem solid black;
+  padding: 0.25rem;
+}
+
+.title {
+  font-weight: bolder;
+}
+
+.content {
+  padding: 1rem;
+}

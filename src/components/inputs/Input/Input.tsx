@@ -1,10 +1,12 @@
 import styles from "./Input.module.css"
 
-export type InputProps = React.HTMLProps<HTMLInputElement>
+export interface InputPropsI extends React.HTMLProps<HTMLInputElement> {
+  disabled?: boolean
+}
 
-function Input(props: InputProps) {
+function Input(props: InputPropsI) {
   return (
-    <input {...props} className={styles.input}></input>
+    <input {...props} className={`${styles.input} ${props.disabled? styles.disabledInput: ""}`}></input>
   );
 }
 
