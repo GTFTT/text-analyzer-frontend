@@ -9,7 +9,7 @@ export interface BorderedSectionPropsI {
 export function BorderedSection({title, children, className}: BorderedSectionPropsI) {
   return (
     <div className={styles.container}>
-      <span className={styles.title}>{title}</span>
+      <div className={styles.title}>{title}</div>
       <div className={`${styles.content} ${className? className: ""}`}>
         {children}
       </div>
