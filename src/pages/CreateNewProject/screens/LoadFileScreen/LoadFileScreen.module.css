@@ -1,3 +1,7 @@
 .container {
-
+  width: stretch;
+  height: stretch;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
