@@ -1,0 +1,26 @@
+.container {
+  width: stretch;
+  height: 1rem;
+  background-color: black;
+  border-radius: 0.25rem;
+  position: relative;
+}
+
+.loadingBar {
+  width: 0;
+  height: 1rem;
+  background-color: white;
+  transition: 1s;
+  border-radius: 0.25rem;
+}
+
+.percentageLabel {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  color: #123c00;
+  text-align: center;
+  font-size: 0.8rem;
+  text-shadow: 0 0 0.01rem #2e9500;
+  font-weight: bold;
+}
