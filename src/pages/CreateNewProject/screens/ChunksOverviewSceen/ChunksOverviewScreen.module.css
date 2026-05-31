@@ -1,0 +1,41 @@
+.container {
+  width: stretch;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.info {
+  margin: 0;
+  color: #495057;
+}
+
+.error {
+  margin: 0;
+  color: #e53935;
+}
+
+.sectionContent {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  color: black;
+}
+
+.item {
+  padding: 0.75rem;
+  border-radius: 8px;
+  border: 1px solid #ced4da;
+  background-color: #f8f9fa;
+}
+
+.itemHeader {
+  margin: 0 0 0.5rem 0;
+  font-weight: 600;
+}
+
+.itemText {
+  margin: 0;
+  white-space: pre-wrap;
+}
+

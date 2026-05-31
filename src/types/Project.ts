@@ -29,3 +29,9 @@ export interface UploadProgress {
   isReady: boolean;
   isCanceled: boolean;
 }
+
+export interface ProjectChunkItem {
+  id: string;
+  chunk: string;
+  embedding: number[];
+}

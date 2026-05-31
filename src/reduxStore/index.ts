@@ -1,10 +1,15 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { MENU_SLICE_NAME, menuSliceReducer } from "../components/Menu/menuSlice.ts";
+import {
+  CURRENT_PROJECT_SLICE_NAME,
+  currentProjectReducer,
+} from "../commonSlices/projects/currentProjectSlice.ts";
 import { projectsApi } from "../services/projectsApi.ts";
 
 export const store = configureStore({
   reducer: {
     [MENU_SLICE_NAME]: menuSliceReducer,
+    [CURRENT_PROJECT_SLICE_NAME]: currentProjectReducer,
     [projectsApi.reducerPath]: projectsApi.reducer,
   },
   middleware: (getDefaultMiddleware) =>

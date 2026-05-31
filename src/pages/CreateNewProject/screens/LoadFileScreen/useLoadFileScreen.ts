@@ -1,5 +1,6 @@
 import {useCallback, useEffect, useState} from "react";
 import type {ChangeEvent} from "react";
+import { setCurrentProjectId } from "../../../../commonSlices/projects/currentProjectSlice.ts";
 import {useAppDispatch} from "../../../../reduxStore/hooks.ts";
 import {
   projectsApi,
@@ -68,6 +69,7 @@ export function useLoadFileScreen({ onUploadingDone }: UseLoadFileScreenParams =
         return;
       }
 
+      dispatch(setCurrentProjectId(projectId));
       setActiveUploadProjectId(projectId);
       await uploadProjectFile({projectId, file: currentFile}).unwrap();
 

@@ -2,6 +2,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import type {
   CreateProjectArg,
   Project,
+  ProjectChunkItem,
   ProjectsResponse,
   UploadProgress,
   UploadProgressResponse,
@@ -59,6 +60,13 @@ export const projectsApi = createApi({
       transformResponse: (response: UploadProgressResponse) =>
         normalizeUploadProgress(response),
     }),
+    /** GET /projects/{project_id}/chunks — get generated chunks */
+    getProjectChunks: builder.query<ProjectChunkItem[], number>({
+      query: (projectId) => `/projects/${projectId}/chunks`,
+      transformResponse: (response: { chunks: ProjectChunkItem[] }) => {
+        return response.chunks as ProjectChunkItem[];
+      },
+    }),
   }),
 });
 
@@ -69,5 +77,5 @@ export const {
   useCreateProjectMutation,
   useGetUploadProgressQuery,
   useUploadProjectFileMutation,
+  useGetProjectChunksQuery,
 } = projectsApi;
-
