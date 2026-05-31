@@ -2,40 +2,51 @@ import styles from "./LoadFileScreen.module.css";
 import {InputWithLabel} from "../../../../components/inputs/InputWithLabel/InputWithLabel.tsx";
 import {FileDropInput} from "../../../../components/inputs/FileDropInput/FileDropInput.tsx";
 import {BorderedSection} from "../../../../components/BorderedSection/BorderedSection.tsx";
-import {useEffect, useState} from "react";
 import {LoadingBar} from "../../../../components/Loader/LoadingBar.tsx";
+import Button from "../../../../components/buttons/Button/Button.tsx";
+import {useLoadFileScreen} from "./useLoadFileScreen.ts";
 
-export function LoadFileScreen() {
-  const [currentFile, setCurrentFile] = useState<File | null>(null);
-  const [percentage, setPercentage] = useState(0);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setPercentage((prev) => {
-        if (prev >= 100) {
-          clearInterval(interval);
-          return 100;
-        }
-        return prev + 1;
-      });
-    }, 100);
+export interface LoadFileScreenI {
+  onUploadingDone?: () => void;
+}
 
-    return () => clearInterval(interval);
-  }, []);
+export function LoadFileScreen({ onUploadingDone }: LoadFileScreenI) {
+  const {
+    currentFile,
+    projectName,
+    isUploading,
+    uploadProgressPercentage,
+    isConfirmDisabled,
+    isProjectNameErrorVisible,
+    onProjectNameChange,
+    onFilesDropped,
+    onConfirm,
+  } = useLoadFileScreen({ onUploadingDone });
 
   return (
     <div className={styles.container}>
-      <InputWithLabel label={"Project name"} placeholder={"Enter file path..."} />
-      <FileDropInput onFilesDropped={(files) => {
-        console.log(files);
-        setCurrentFile(files[0]);
-      }} />
+      <InputWithLabel
+        label={"Project name"}
+        placeholder={"Enter project name..."}
+        value={projectName}
+        onChange={onProjectNameChange}
+      />
+      <FileDropInput onFilesDropped={onFilesDropped} />
       <BorderedSection title={"File info"} className={styles.fileInfoSection}>
         <InputWithLabel label={'File name'} value={currentFile?.name || ""} disabled />
         <InputWithLabel label={'File size'} value={currentFile ? `${currentFile.size} bytes` : ""} disabled />
       </BorderedSection>
 
-      <LoadingBar percentage={percentage}/>
+      {isProjectNameErrorVisible && (
+        <p className={styles.error}>Project name is required.</p>
+      )}
+
+      <LoadingBar percentage={uploadProgressPercentage}/>
+
+      <Button disabled={isConfirmDisabled} onClick={onConfirm}>
+        {isUploading ? "Uploading..." : "Confirm upload"}
+      </Button>
     </div>
   );
 }

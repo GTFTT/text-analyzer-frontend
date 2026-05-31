@@ -11,3 +11,8 @@
   flex-direction: column;
   gap: 0.5rem;
 }
+
+.error {
+  margin: 0;
+  color: #e53935;
+}
