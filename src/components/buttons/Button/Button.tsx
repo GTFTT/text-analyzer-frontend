@@ -1,11 +1,13 @@
 import {type ButtonHTMLAttributes} from 'react';
 import styles from "./Button.module.css"
 
-export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement>
+export interface ButtonPropsI extends ButtonHTMLAttributes<HTMLButtonElement> {
+  disabled?: boolean;
+}
 
-function Button(props: ButtonProps) {
+function Button(props: ButtonPropsI) {
   return (
-    <button {...props} className={`${styles.container} ${props.className}`}></button>
+    <button {...props} className={`${styles.container} ${props.className? props.className: ""} ${props.disabled? styles.disabled: ""}`}></button>
   );
 }
 

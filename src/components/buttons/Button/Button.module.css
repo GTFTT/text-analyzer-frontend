@@ -10,3 +10,13 @@
   background: #8f8f8f;
   cursor: pointer;
 }
+
+.disabled {
+  cursor: not-allowed !important;
+  color: darkgray !important;
+}
+
+.disabled:hover {
+  background: #424242 !important;
+  cursor: not-allowed !important;
+}
