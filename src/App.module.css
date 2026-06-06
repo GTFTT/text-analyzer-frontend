@@ -10,8 +10,12 @@
   overflow: hidden;   /* prevent page-level overflow */
 }
 
+.menuContainer {
+  width: 30vw;
+}
+
 .pagesContainer {
-  flex: 1 1 auto;
+  width: 70vw;
   min-width: 0;
   min-height: 0;
   overflow-y: scroll;

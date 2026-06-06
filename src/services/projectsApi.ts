@@ -67,6 +67,48 @@ export const projectsApi = createApi({
         return response.chunks as ProjectChunkItem[];
       },
     }),
+    /** GET /projects/{project_id}/ask — ask a question and get an LLM answer */
+    askProjectQuestion: builder.mutation<
+      { answer: string },
+      { projectId: number; query: string }
+    >({
+      query: ({ projectId, query }) => ({
+        url: `/projects/${projectId}/ask`,
+        method: "GET",
+        params: { query },
+      }),
+    }),
+    /** DELETE /projects/{project_id} - delete project with all embeddings and chat history */
+    deleteProject: builder.mutation<
+      { message: string; project_id: number },
+      number
+    >({
+      query: (projectId) => ({
+        url: `/projects/${projectId}`,
+        method: "DELETE",
+      }),
+    }),
+    /** DELETE /projects/{project_id}/chat/history - delete chat history for a project */
+    deleteProjectChatHistory: builder.mutation<{ message?: string }, number>({
+      query: (projectId) => ({
+        url: `/projects/${projectId}/chat/history`,
+        method: "DELETE",
+      }),
+    }),
+    /** GET /projects/{project_id}/chat/history/latest - get latest chat history messages */
+    getLatestProjectChatHistory: builder.query<
+      { role: string; content: string; created_at: string }[],
+      { projectId: number; limit?: number }
+    >({
+      query: ({ projectId, limit = 20 }) => ({
+        url: `/projects/${projectId}/chat/history/latest`,
+        params: { limit },
+      }),
+      transformResponse: (response: {
+        chat_history: { role: string; content: string; created_at: string }[];
+        limit: number;
+      }) => response.chat_history,
+    }),
   }),
 });
 
@@ -78,4 +120,8 @@ export const {
   useGetUploadProgressQuery,
   useUploadProjectFileMutation,
   useGetProjectChunksQuery,
+  useAskProjectQuestionMutation,
+  useDeleteProjectMutation,
+  useDeleteProjectChatHistoryMutation,
+  useGetLatestProjectChatHistoryQuery,
 } = projectsApi;

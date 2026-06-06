@@ -6,7 +6,9 @@ function App() {
 
   return (
     <div className={styles.app}>
-      <Menu />
+      <div className={styles.menuContainer}>
+        <Menu />
+      </div>
       <div className={styles.pagesContainer}>
         <MainRoutesNode />
       </div>
