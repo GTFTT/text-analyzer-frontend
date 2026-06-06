@@ -9,6 +9,7 @@ export interface ProjectChatMessage {
   id: string;
   role: ProjectChatRole;
   text: string;
+  bestTexts?: string[]; // Optional field for assistant messages with best texts
 }
 
 interface CurrentProjectState {

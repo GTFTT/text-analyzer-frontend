@@ -45,6 +45,9 @@
   max-width: 92%;
   padding: 0.75rem;
   border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
 .userMessage {
@@ -65,6 +68,16 @@
   font-size: 0.85rem;
   color: #495057;
   font-weight: 600;
+}
+
+.messageContextContainer {
+  height: 20vh;
+  overflow-y: scroll;
+  scrollbar-width: thin;
+  background-color: rgb(0 0 0 / 0.2);
+  color: gray;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
 }
 
 .messageText {

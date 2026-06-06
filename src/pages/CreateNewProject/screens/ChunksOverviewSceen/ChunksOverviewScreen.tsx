@@ -45,7 +45,7 @@ export function ChunksOverviewScreen() {
         )}
       </BorderedSection>
 
-      <BorderedSection title="Generated embeddings" className={styles.sectioSnContent}>
+      <BorderedSection title="Generated embeddings" className={styles.sectionContent}>
         {chunkItems.length === 0 ? (
           <p className={styles.info}>No embeddings available.</p>
         ) : (

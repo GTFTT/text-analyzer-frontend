@@ -97,7 +97,7 @@ export const projectsApi = createApi({
     }),
     /** GET /projects/{project_id}/chat/history/latest - get latest chat history messages */
     getLatestProjectChatHistory: builder.query<
-      { role: string; content: string; created_at: string }[],
+      { role: string; content: string; created_at: string, best_texts?: string[] }[],
       { projectId: number; limit?: number }
     >({
       query: ({ projectId, limit = 20 }) => ({

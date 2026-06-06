@@ -68,6 +68,13 @@ export function ExistingProjectChat() {
               }`}
             >
               <p className={styles.messageRole}>{message.role === "user" ? "You" : "Assistant"}</p>
+              {message.bestTexts !== undefined? <div className={styles.messageContextContainer}>{message.bestTexts.map((bt, index) => {
+                return (
+                  <div key={index}>
+                    <p className={styles.messageContextText}>{bt}</p>
+                  </div>
+                )
+              })}</div>: ""}
               <p className={styles.messageText}>{message.text}</p>
             </div>
           ))

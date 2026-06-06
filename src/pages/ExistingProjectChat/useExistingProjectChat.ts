@@ -73,6 +73,7 @@ export function useExistingProjectChat() {
         id: `${message.created_at}-${index}`,
         role,
         text: message.content,
+        bestTexts: message.role === "assistant" && message.best_texts? message.best_texts : undefined,
       };
     });
 
